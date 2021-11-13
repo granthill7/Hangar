@@ -19,8 +19,8 @@ interface PopupModalProps {
   hideCloseButton?: boolean;
   openButtonProps?: ButtonProps;
   onConfirm?: () => Promise<void>;
-  succussMessage?: string;
-  errorMessage?: string;
+  succussMessage?: React.ReactNode;
+  errorMessage?: React.ReactNode;
 }
 
 export const PopUpModal: React.FC<PopupModalProps> = ({
@@ -35,7 +35,7 @@ export const PopUpModal: React.FC<PopupModalProps> = ({
 }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [modalHeader, setModalHeader] = useState(header);
-  const [bodyText, setBodyText] = useState<string | undefined>(undefined);
+  const [bodyText, setBodyText] = useState<React.ReactNode | undefined>(undefined);
   const [isLoading, setIsLoading] = useState(false);
   const [confirmButtonVisible, setConfirmButtonVisible] = useState(true);
 
